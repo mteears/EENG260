@@ -4,8 +4,7 @@
 									; program creates a table of 10 values in memorty and stores values 0 - 15
 									;First	.equ	0x20000400 ;this will be the first address in memory to which we will write the first value
 									;Count	.equ	0x10 this is our loop count
-									;Init_Sum	.equ	0x0000	;initialize sum to zero
-									:hfjksjkd
+									;Init_Sum	.equ	0x0000	;initialize sum to zero				
 
 ;Label		pnemonic	 operands
 Prog_Start:	MOVW		R1,#0x0400
