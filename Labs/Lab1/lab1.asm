@@ -11,8 +11,9 @@ Prog_Start:	MOVW		R1,#0x0400	;puts 0x0400 in Register 1. [15:00] 	(0x----0400)
 			MOVT		R1,#0x2000	;puts 0x2000 in Register 1. [31:16]		(0x20000400) {address}
 			MOVB		R0,#0x00	;puts 0x0000 in Register 0. (0x0000)
 			MOVB		R2,#0x10	;puts 0x0010 in Register 2. (0x0010)
+			MOVB		R4,#0x02	;puts 0x0002 in Register 4.
 Loop:		STRB		R0,[R1]		;puts LSB from R0 into address at R1	(0x0000 -> 0x20000400) {first time}
-			ADD			R1,#1		;adds 1 to R1.  (
+			ADD			R1,R1,R4	;adds R4 (2) to R1. places result in R1
 			ADD			R0,#1		;adds 1 to R0.  (0x0001) {first time}
 			SUB			R2,R2,#1	;Subtracts 1 from R1, places result back in R2.
 			BNE			Loop		;Returns to Loop if the zero flag is set.  (ie.  the previous operation finally equaled 0).
