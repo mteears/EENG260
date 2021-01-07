@@ -1,0 +1,149 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.1                     
+******************************************************************************
+>> Linked Thu Jan  7 15:25:05 2021
+
+OUTPUT FILE NAME:   <Lab1.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000002bd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000318  0003fce8  R  X
+  SRAM                  20000000   00008000  00000c04  000073fc  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000318   00000318    r-x
+  00000000    00000000    000002a8   000002a8    r-- .intvecs
+  000002a8    000002a8    0000002c   0000002c    r-x .text
+  000002d4    000002d4    00000044   00000044    r-x .mycode
+20000000    20000000    00000c04   00000000    rw-
+  20000000    20000000    00000c04   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000002a8     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+                  0000026c    00000014     lab1.obj (.intvecs)
+                  00000280    00000014     lab1.obj (.intvecs)
+                  00000294    00000014     example.obj (.intvecs)
+
+.text      0    000002a8    0000002c     
+                  000002a8    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000002b4    00000008     lab1.obj (.text)
+                  000002bc    00000008     lab1.obj (.text)
+                  000002c4    00000008     example.obj (.text)
+                  000002cc    00000008     lab1.obj (.tramp.Prog_Start.1)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000c04     UNINITIALIZED
+                  20000000    00000400     lab1.obj (.stack)
+                  20000400    00000400     lab1.obj (.stack)
+                  20000800    00000400     example.obj (.stack)
+                  20000c00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+
+.mycode    0    000002d4    00000044     
+                  000002d4    00000044     lab1.obj (.mycode)
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       lab1.obj                       84     20        0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         96     640       0      
+                                                              
+    .\Lab1\
+       example.obj                    8      20        0      
+       lab1.obj                       8      20        0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         16     40        0      
+                                                              
+       Stack:                         0      0         3076   
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   112    680       3076   
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+Prog_Start                $Tramp$TT$S$$Prog_Start
+   000002d5     000002cc     000002b4   lab1.obj (.text)
+                             000002bc   lab1.obj (.text)
+                             000002c4   example.obj (.text)
+
+[1 trampolines]
+[3 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+000002d5  Prog_Start             
+000002a9  ResetISR               
+00000280  Vecs                   
+20000c04  __STACK_END            
+00000c04  __STACK_SIZE           
+20000e00  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+20000c00  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+000002bd  _c_int00               
+ffffffff  binit                  
+00000000  g_pfnVectors           
+20000400  myStack                
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  g_pfnVectors           
+00000280  Vecs                   
+000002a9  ResetISR               
+000002bd  _c_int00               
+000002d5  Prog_Start             
+00000c04  __STACK_SIZE           
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+20000400  myStack                
+20000c00  __stack                
+20000c04  __STACK_END            
+20000e00  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+
+[19 symbols]
