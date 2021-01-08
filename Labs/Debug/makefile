@@ -12,8 +12,6 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./lab1.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
-"./Lab1/example.obj" \
-"./Lab1/lab1.obj" \
 "C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
@@ -27,9 +25,7 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
--include Lab1/subdir_vars.mk
 -include subdir_rules.mk
--include Lab1/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -160,9 +156,9 @@ Lab1.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "lab1.obj" "tm4c123gh6pm_startup_ccs.obj" "Lab1\example.obj" "Lab1\lab1.obj" 
+	-$(RM) "lab1.obj" "tm4c123gh6pm_startup_ccs.obj" 
 	-$(RM) "tm4c123gh6pm_startup_ccs.d" 
-	-$(RM) "lab1.d" "Lab1\example.d" "Lab1\lab1.d" 
+	-$(RM) "lab1.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
