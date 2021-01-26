@@ -1,6 +1,5 @@
 #include "tm4c123gh6pm.h"
 
-
 # define GPIO_PORTF_DATA_RD         (*(( volatile unsigned long *)0x40025040))
 # define GPIO_PORTF_DATA_WR         (*(( volatile unsigned long *)0x40025020))
 # define GPIO_PORTF_PIN3_EN         0x08
