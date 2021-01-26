@@ -10,9 +10,11 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./lab2.obj" \
+"./tm4c123gh6pm_startup_ccs.obj" \
 "../tm4c123gh6pm.cmd" \
+"../tm4c123gh6pm1.cmd" \
 $(GEN_CMDS__FLAG) \
+-llibc.a \
 
 -include ../makefile.init
 
@@ -153,8 +155,8 @@ Lab2.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "lab2.obj" 
-	-$(RM) "lab2.d" 
+	-$(RM) "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
