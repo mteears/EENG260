@@ -6,7 +6,7 @@
  *
  *****************************************************************************/
 
-// --retain=g_pfnVectors
+--retain=g_pfnVectors
 
 MEMORY
 {
@@ -34,7 +34,6 @@ SECTIONS
     .cinit  :   > FLASH
     .pinit  :   > FLASH
     .init_array : > FLASH
-    .myCode :   > FLASH
 
     .vtable :   > 0x20000000
     .data   :   > SRAM
@@ -43,3 +42,4 @@ SECTIONS
     .stack  :   > SRAM
 }
 
+__STACK_TOP = __stack + 512;
