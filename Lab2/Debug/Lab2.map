@@ -1,0 +1,106 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.2                     
+******************************************************************************
+>> Linked Mon Jan 25 18:31:38 2021
+
+OUTPUT FILE NAME:   <Lab2.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000381
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000388  0003fc78  R  X
+  SRAM                  20000000   00008000  00000400  00007c00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000388   00000388    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    0000011c   0000011c    r-x .text
+20000000    20000000    00000400   00000000    rw-
+  20000000    20000000    00000400   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     lab2.obj (.intvecs)
+
+.text      0    0000026c    0000011c     
+                  0000026c    0000011c     lab2.obj (.text)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000400     UNINITIALIZED
+                  20000000    00000400     lab2.obj (.stack)
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module         code   ro data   rw data
+       ------         ----   -------   -------
+    .\
+       lab2.obj       284    620       0      
+    +--+--------------+------+---------+---------+
+       Total:         284    620       0      
+                                              
+       Stack:         0      0         1024   
+    +--+--------------+------+---------+---------+
+       Grand Total:   284    620       1024   
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+20000000  Prog_Stack             
+00000349  Prog_Start             
+00000000  Vector_Table           
+20000400  __STACK_END            
+00000400  __STACK_SIZE           
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+00000381  _c_int00               
+ffffffff  binit                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  Vector_Table           
+00000000  __TI_static_base__     
+00000349  Prog_Start             
+00000381  _c_int00               
+00000400  __STACK_SIZE           
+20000000  Prog_Stack             
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+20000400  __STACK_END            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+
+[15 symbols]
