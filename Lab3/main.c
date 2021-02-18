@@ -82,6 +82,7 @@ while(1)
             int i = 0;
             for(i = 0; i < 5; i++)
             {
+                flag = 1;
                 ms_delay(498);
                 GPIO_PORTF_DATA_R ^= 0x02;
                 ms_delay(498);
