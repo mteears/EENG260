@@ -1,1 +1,1 @@
-"./lab2.obj" "../tm4c123gh6pm.cmd" 
+"./tm4c123gh6pm_startup_ccs.obj" "../tm4c123gh6pm.cmd" "../tm4c123gh6pm1.cmd" -llibc.a 
