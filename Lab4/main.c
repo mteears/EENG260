@@ -120,18 +120,16 @@ void ms_delay(unsigned long count)
     }
 }
 
-void GPIOPortF_Handler(void)
+void Loop()
+{
+    Enable_Interrupts();
+    while(1)
     {
-        GPIO_PORTF_IM_R &= ~0x10;           // Mask interrupt on PF4
         ms_delay(498);
-        GPIO_PORTF_ICR_R = 0x10;            // Clear interrupt flag
-        GPIO_PORTF_DATA_R ^= 0x02;      // Green LED on
-        ms_delay(498);
-        GPIO_PORTF_DATA_R ^= 0x04;
-        ms_delay(498);
-        GPIO_PORTF_DATA_R ^= 0x08;
-        GPIO_PORTF_IM_R |= 0x10;            // Unmask interrupt on PF4
+        GPIO_PORTF_DATA_R ^= 0x02;
     }
+}
+
 
 int main(void)
 {
@@ -139,12 +137,25 @@ int main(void)
     Config_SysTick();
     Config_Port_F();
     Enable_Interrupts();
-
-    while(1)
-    {
-        ms_delay(498);
-        GPIO_PORTF_DATA_R ^= 0x02;
-    }
-
-    return 0;
+    Loop();
 }
+
+void GPIOPortF_Handler(void)
+    {
+        GPIO_PORTF_IM_R &= ~0x10;           // Mask interrupt on PF4
+        ms_delay(498);
+        GPIO_PORTF_ICR_R = 0x10;            // Clear interrupt flag
+        ms_delay(498);
+        GPIO_PORTF_DATA_R = 0x0;
+        GPIO_PORTF_DATA_R = 0x02;
+        ms_delay(498);
+        GPIO_PORTF_DATA_R = 0x0;
+        GPIO_PORTF_DATA_R = 0x08;
+        ms_delay(498);
+        GPIO_PORTF_DATA_R = 0x0;
+        GPIO_PORTF_DATA_R = 0x04;
+        ms_delay(498);
+        GPIO_PORTF_DATA_R = 0x0;
+        GPIO_PORTF_IM_R |= 0x10;            // Unmask interrupt on PF4
+        Config_SysTick();
+    }
